@@ -1,0 +1,27 @@
+
+
+<a routerLink="new">Ajouter une suggestion</a><br>
+
+<!-- <a routerLink="./suggestions">Listes des suggestions</a> -->
+
+<div class="row">
+<div class="col" *ngFor="let s of suggestions">
+
+  <div  class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Title {{s.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Category :  {{s.category}}</h6>
+    <p class="card-text">Description :  {{s.description}}</p>
+    <p class="card-text">Date :  {{s.date}}</p>
+    <p class="card-text">Status :  {{s.status}}</p>
+    <a [routerLink]="['/suggestions/detail', s.id]" class="card-link">Details</a>
+     <button (click)="deleteSuggestion(s.id)" class="btn btn-danger btn-sm">Supprimer</button><br>
+<button (click)="likeSuggestion(s)" class="btn btn-outline-primary btn-sm">
+  👍 Like <span class="badge bg-primary">{{s.nbLikes || 0}}</span>
+</button>
+
+  </div>
+</div>
+
+</div>
+</div>

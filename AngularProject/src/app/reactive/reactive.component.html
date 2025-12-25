@@ -1,0 +1,37 @@
+<h2>FormControl</h2>
+ <label>Login</label>
+  <input class="form-control" type="text" placeholder="login" [formControl]="login">
+ <label>password</label>
+  <input class="form-control" type="text" placeholder="password" [formControl]="pwd">
+
+ <input class="btn btn-primary" type="submit" value="save" (click)="save()" [disabled]="login.invalid || pwd.invalid">
+
+<h2>FormGroup</h2>
+
+<form  [formGroup]="registerForm">
+ <label>Login</label>
+  <input class="form-control" type="text" placeholder="login" formControlName="login">
+
+  <div *ngIf="getLogin()?.invalid && getLogin()?.touched" class="alert alert-danger">
+    <p *ngIf="registerForm.controls['login'].hasError('required')">login est obligatoire </p>
+    <p *ngIf="registerForm.controls['login'].hasError('minlength')">login doit contenir au moins 5 caractères</p>
+  </div>
+
+ <label>password</label>
+  <input class="form-control" type="text" placeholder="password" formControlName="pwd">
+
+   <div *ngIf="registerForm.controls['pwd'].invalid && registerForm.controls['pwd'].touched" class="alert alert-danger">
+    <p *ngIf="registerForm.controls['pwd'].hasError('required')">password est obligatoire </p>
+    <p *ngIf="registerForm.controls['pwd'].hasError('pattern')">password doit contenir lettre majuscule et chiffre et doit contenir au moins 8 caracteres </p>
+    </div>
+   <label>email</label>
+  <input class="form-control" type="text" placeholder="email" formControlName="email">
+
+   <label>cin</label>
+  <input class="form-control" type="text" placeholder="cin" formControlName="cin">
+   <label>telephone</label>
+  <input class="form-control" type="text" placeholder="telephone" formControlName="telephone" readonly>
+
+ <input class="btn btn-primary" type="submit" value="save" (click)="save2()" [disabled]="registerForm.invalid">
+
+</form>

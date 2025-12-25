@@ -1,0 +1,52 @@
+<form [formGroup]="suggestionForm" (ngSubmit)="onSubmit()">
+
+  <!-- Titre -->
+  <label>Titre</label>
+  <input type="text" formControlName="title" class="form-control">
+
+  <div class="text-danger" *ngIf="suggestionForm.controls['title'].touched && suggestionForm.controls['title'].invalid">
+    <div *ngIf="suggestionForm.controls['title'].errors?.['required']">Titre obligatoire</div>
+    <div *ngIf="suggestionForm.controls['title'].errors?.['minlength']">
+      Minimum 5 caractères
+    </div>
+    <div *ngIf="suggestionForm.controls['title'].errors?.['pattern']">
+      Doit commencer par une majuscule et contenir uniquement des lettres
+    </div>
+  </div>
+
+  <!-- Description -->
+  <label>Description</label>
+  <textarea formControlName="description" class="form-control"></textarea>
+
+  <div class="text-danger" *ngIf="suggestionForm.controls['description'].touched && suggestionForm.controls['description'].invalid">
+    <div>Description minimum 30 caractères</div>
+  </div>
+
+  <!-- Catégorie -->
+  <label>Catégorie</label>
+  <select formControlName="category" class="form-control">
+    <option value="">-- Sélectionnez une catégorie --</option>
+    <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+  </select>
+
+  <div class="text-danger" *ngIf="suggestionForm.controls['category'].touched && suggestionForm.controls['category'].invalid">
+    Catégorie obligatoire
+  </div>
+
+  <!-- Date -->
+  <label>Date</label>
+  <input type="text" formControlName="date" class="form-control" readonly>
+
+  <!-- Status -->
+  <label>Status</label>
+  <input type="text" formControlName="status" class="form-control" readonly>
+
+  <br>
+
+  <button type="submit"
+          class="btn btn-primary"
+          [disabled]="suggestionForm.invalid">
+    Soumettre
+  </button>
+
+</form>

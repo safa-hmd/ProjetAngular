@@ -1,0 +1,16 @@
+{
+    "suggestions": [
+        {
+        "id": 1,
+        "title": "Improve UI Design",
+        "description": "The user interface could be more intuitive and visually appealing.",
+        "nbLikes": 5
+        },
+        {
+        "id": 2,
+        "title": "Add Dark Mode",
+        "description": "A dark mode option would be great for users who prefer it.",
+        "nbLikes": 8
+        }
+    ]
+}

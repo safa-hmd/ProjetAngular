@@ -1,0 +1,14 @@
+<h3>Suggestion n° {{ id }}</h3>
+
+<h4>{{ suggestion.title }}</h4>
+<p>{{ suggestion.description }}</p>
+
+<p>Category : {{ suggestion.category }}</p>
+<p>Date : {{ suggestion.date }}</p>
+<p>Status : {{ suggestion.status }}</p>
+
+<!-- suggestion-details.component.html -->
+<!-- lien absolu avec / au début -->
+<button [routerLink]="['/suggestions/update-suggestion', suggestion.id]">Update</button>
+
+
